@@ -1,4 +1,3 @@
-// modified this code in short
 #include <iostream>
 using namespace std;
 
