@@ -1,4 +1,4 @@
-//Script to find the largest common subsequence
+//some features in largest common subsequence
 #include <stdio.h>
 #include <string.h>
 
@@ -9,7 +9,7 @@ int max(int a, int b) {
 void lcs(char *X, char *Y, int m, int n) {
     int L[m + 1][n + 1];
 
-    // Build the LCS matrix
+    
     for (int i = 0; i <= m; i++) {
         for (int j = 0; j <= n; j++) {
             if (i == 0 || j == 0)
@@ -21,10 +21,9 @@ void lcs(char *X, char *Y, int m, int n) {
         }
     }
 
-    // Find the LCS length
     int length = L[m][n];
 
-    // Create an array to store the LCS
+    
     char lcs[length + 1];
     lcs[length] = '\0';
 
