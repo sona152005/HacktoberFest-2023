@@ -1,31 +1,40 @@
+// modified this in short 
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArrayMinMax {
-    static void getMinMax(long a[], long n)  
-    {
-        long maxNo=Integer.MIN_VALUE;
-        long minNo=Integer.MAX_VALUE;
-        for(int i=0;i<n;i++){
-            if(a[i]>maxNo){
-                maxNo=a[i];
-            }
-            if(a[i]<minNo){
-                minNo=a[i];
-            }
+    static void getMinMax(long[] a) {
+        long minNo = Long.MAX_VALUE, maxNo = Long.MIN_VALUE;
+        
+        for (long num : a) {
+            if (num < minNo) minNo = num;
+            if (num > maxNo) maxNo = num;
         }
-        System.out.println("min = "+minNo);
-        System.out.println("max = "+maxNo);
+        
+        System.out.println("min = " + minNo);
+        System.out.println("max = " + maxNo);
     }
-    public static void main(String[] args){
-        Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        long a[]=new long[n];
-        for(int i=0;i<n;i++){
-            a[i]=sc.nextInt();
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of elements: ");
+        int n = sc.nextInt();
+        long[] a = new long[n];
+
+        System.out.println("Enter " + n + " elements:");
+        for (int i = 0; i < n; i++) {
+            a[i] = sc.nextLong();
         }
-        getMinMax(a,n);
+
+        getMinMax(a);
         Arrays.sort(a);
-        System.out.println(a[3]);
+        
+        if (n >= 4) {
+            System.out.println("The fourth smallest element is: " + a[3]);
+        } else {
+            System.out.println("Not enough elements to access the fourth smallest.");
+        }
+
+        sc.close();
     }
 }
